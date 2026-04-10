@@ -71,9 +71,11 @@ export default function InventoryPage() {
                 />
               </div>
               <div className="inventory-list">
-                {inventory.map((item) => (
-                  <ItemCard key={item.id} item={item} />
-                ))}
+                {inventory.length === 0 ? (
+                  <p className="text-muted mb-0">No items yet.</p>
+                ) : (
+                  inventory.map((item) => <ItemCard key={item.id} item={item} />)
+                )}
               </div>
             </Card.Body>
           </Card>
@@ -86,9 +88,11 @@ export default function InventoryPage() {
             <Card.Body>
               <Card.Title as="h2">Items to use soon</Card.Title>
               <div className="inventory-list">
-                {urgent.map((item) => (
-                  <ItemCard key={`urgent-${item.id}`} item={item} />
-                ))}
+                {urgent.length === 0 ? (
+                  <p className="text-muted mb-0">Nothing urgent right now.</p>
+                ) : (
+                  urgent.map((item) => <ItemCard key={`urgent-${item.id}`} item={item} />)
+                )}
               </div>
             </Card.Body>
           </Card>
