@@ -9,6 +9,18 @@ body {
   color: #222;
 }
 
+.fg-navbar {
+  background-color: #2d6a4f !important;
+}
+
+.fg-navbar .navbar-brand.active {
+  color: #fff !important;
+}
+
+.inventory-search {
+  max-width: 280px;
+}
+
 .topbar {
   display: flex;
   justify-content: space-between;
