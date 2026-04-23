@@ -4,4 +4,22 @@ export const stats = [
   { label: "Expired", value: 0 },
 ];
 
-export const inventory = [];
+/** Sample rows for the inventory page (you can add more in the UI). */
+export const starterInventory = [
+  {
+    id: 1,
+    name: "Greek yogurt",
+    category: "Dairy",
+    location: "Fridge",
+    expiry: "2026-04-28",
+    status: "Use Soon",
+  },
+  {
+    id: 2,
+    name: "Spinach",
+    category: "Produce",
+    location: "Fridge",
+    expiry: "2026-04-24",
+    status: "Fresh",
+  },
+];

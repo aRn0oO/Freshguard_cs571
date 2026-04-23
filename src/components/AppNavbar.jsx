@@ -18,6 +18,9 @@ export default function AppNavbar() {
             <Nav.Link as={NavLink} to="/inventory">
               Inventory
             </Nav.Link>
+            <Nav.Link as={NavLink} to="/scan">
+              Scan
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
