@@ -6,9 +6,9 @@ export default function AppLayout() {
   return (
     <>
       <AppNavbar />
-      <div className="page">
+      <main id="main-content" className="page" tabIndex="-1">
         <Outlet />
-      </div>
+      </main>
     </>
   );
 }

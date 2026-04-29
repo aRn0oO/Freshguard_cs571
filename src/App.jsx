@@ -1,9 +1,11 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./components/AppLayout";
+import { InventoryProvider } from "./context/InventoryContext";
+import BackupPage from "./pages/BackupPage";
+import CalendarPage from "./pages/CalendarPage";
 import HomePage from "./pages/HomePage";
 import InventoryPage from "./pages/InventoryPage";
-import ScanPage from "./pages/ScanPage";
 
 function routerBasename() {
   const base = import.meta.env.BASE_URL;
@@ -12,15 +14,18 @@ function routerBasename() {
 
 export default function App() {
   return (
-    <BrowserRouter basename={routerBasename()}>
-      <Routes>
-        <Route path="/" element={<AppLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="inventory" element={<InventoryPage />} />
-          <Route path="scan" element={<ScanPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <InventoryProvider>
+      <BrowserRouter basename={routerBasename()}>
+        <Routes>
+          <Route path="/" element={<AppLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="inventory" element={<InventoryPage />} />
+            <Route path="calendar" element={<CalendarPage />} />
+          <Route path="backup" element={<BackupPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </InventoryProvider>
   );
 }

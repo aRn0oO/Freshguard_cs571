@@ -17,6 +17,7 @@ export default function AddItemForm({ onAdd }) {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [expiry, setExpiry] = useState("");
+  const locationOptions = ["Fridge", "Freezer", "Pantry"];
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -38,7 +39,7 @@ export default function AddItemForm({ onAdd }) {
     <Form onSubmit={handleSubmit}>
       <Row className="g-3 align-items-end">
         <Col xs={12} md={4}>
-          <Form.Group>
+          <Form.Group controlId="item-name">
             <Form.Label>Name</Form.Label>
             <Form.Control
               value={name}
@@ -50,19 +51,20 @@ export default function AddItemForm({ onAdd }) {
           </Form.Group>
         </Col>
         <Col xs={12} md={4}>
-          <Form.Group>
+          <Form.Group controlId="item-location">
             <Form.Label>Location</Form.Label>
-            <Form.Control
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              type="text"
-              placeholder="e.g. Fridge door"
-              required
-            />
+            <Form.Select value={location} onChange={(e) => setLocation(e.target.value)} required>
+              <option value="">Choose location...</option>
+              {locationOptions.map((loc) => (
+                <option key={loc} value={loc}>
+                  {loc}
+                </option>
+              ))}
+            </Form.Select>
           </Form.Group>
         </Col>
         <Col xs={12} md={2}>
-          <Form.Group>
+          <Form.Group controlId="item-expiry-date">
             <Form.Label>Expiration day</Form.Label>
             <Form.Control type="date" value={expiry} onChange={(e) => setExpiry(e.target.value)} />
           </Form.Group>

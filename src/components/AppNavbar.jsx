@@ -4,8 +4,12 @@ import { NavLink } from "react-router-dom";
 
 export default function AppNavbar() {
   return (
-    <Navbar expand="lg" variant="dark" className="fg-navbar mb-0">
-      <Container>
+    <>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+      <Navbar expand="lg" variant="dark" className="fg-navbar mb-0">
+        <Container>
         <Navbar.Brand as={NavLink} to="/">
           FreshGuard
         </Navbar.Brand>
@@ -18,12 +22,16 @@ export default function AppNavbar() {
             <Nav.Link as={NavLink} to="/inventory">
               Inventory
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/scan">
-              Scan
+            <Nav.Link as={NavLink} to="/calendar">
+              Calendar
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/backup">
+              Backup
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        </Container>
+      </Navbar>
+    </>
   );
 }
