@@ -43,7 +43,6 @@ export default function HomePage() {
         <Col xs={12}>
           <Card className="section border shadow-sm">
             <Card.Body>
-              <Card.Title as="h2">Today snapshot</Card.Title>
               <div className="stats">
                 {snapshotStats.map((stat) => (
                   <StatCard key={stat.label} label={stat.label} value={stat.value} />
